@@ -14,7 +14,7 @@ void path_to_string(std::string &str, const std::filesystem::directory_entry &en
 }
 
 std::string Files::get_download_path() {
-    return this->download_path;
+    return this->download_path + "\\";
 }
 
 std::string Files::get_username() {

@@ -49,18 +49,28 @@ void get_directories(std::vector<std::string> &list, T &json) {
     }
 }
 
+void move_file(std::string &folder, std::string &filename) {
+    std::cout << "Moving \"" << filename << "\" to " << folder << std::endl;
+    // std::string new_name = 
+    // std::filesystem::rename()
+}
+
 /* Checks for an existing match in the JSON file */
 template <typename T>
 void filetype_matches(T &json, std::string &file) {
+    std::string original_filename = file;
+
     std::vector<std::string> list;
     to_lowercase(file);
     tokenize(file, ".", list);
     std::string filetype = list.back();
+    
     for (const auto &[key, value] : json.items()) {
         for (auto &fvalue : json[key]) {
-            std::string current_filetype { fvalue }; // TODO: Switch to a better conversion method
+            std::string current_filetype{fvalue}; // TODO: Switch to a better conversion method
             if (current_filetype == filetype) {
-                std::cout << "There was a match: " << filetype << std::endl;
+                std::string folder_name{key};
+                move_file(folder_name, original_filename);
             }
         }
     }
@@ -93,7 +103,6 @@ int main() {
     auto directories = files.get_all_directories();
     auto my_files = files.get_all_files();
     std::string download_path = files.get_download_path();
-    download_path += R"(\)";
 
     std::string lines = read_json_file();
     auto j = json::parse(lines);

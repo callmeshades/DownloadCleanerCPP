@@ -1,13 +1,15 @@
-This application will create all folders in the "Downloads" folder on Windows.
-The folders are created based on the "filetypes.json" file. All keys for parent arrays in the JSON file are used for the folder creation. If the folder already exists, the creation is skipped. 
+This application will create all folders in the `Downloads` folder on Windows.
+The folders are created based on the `filetypes.json` file. All keys for parent arrays in the JSON file are used for the folder creation. If the folder already exists, the creation is skipped. 
 
 All values in the array are used for matching filetypes. If a filetype match is found it will be moved into the folder based on the key used for creation.
 
-For example, if a "test.zip" file exists in the downloads folder a match will be found in the "Archives" array. This "test.zip" file will then be moved into the Archives folder. The "filetypes.json" file can be customized to your liking to create folders, and move files based on filetypes.
+For example, if a `test.zip` file exists in the downloads folder a match will be found in the `Archives` array. The `test.zip` file will then be moved into the `Archives` folder. The `filetypes.json` file can be customized to your liking to create folders, and move files based on filetypes.
 
 If you would like to add additional filetypes to the JSON file please create a pull request with the requested changes.
 
 You do not need to recompile the application if the JSON file changes.
+
+In the future I plan to add a generic `Folder` where any folders that do **not** match `filetypes.json` then the folder will be moved into the generic `Folder`. This will allow a cleaner downloads folder. This is I myself require due to unziping archives & more. This will be an optional feature that will require user input.
 
 ------------------------------------------------------------------------------
 

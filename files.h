@@ -21,6 +21,6 @@ private:
 
     static std::string get_username();
     static std::string build_download_path();
-    static std::string get_filename(const std::filesystem::directory_entry &entry);
-    void add_all_files(std::vector<std::string> &files, bool include_files=false);
+    static std::string get_filename(const std::filesystem::directory_entry& entry);
+    void add_all_files(std::vector<std::string>& files, bool include_files = false);
 };

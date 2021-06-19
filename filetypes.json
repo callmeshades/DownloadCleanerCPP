@@ -84,7 +84,8 @@
     "exe",
     "gadget",
     "msi",
-    "wsf"
+    "wsf",
+    "jnlp"
   ],
   "Fonts": [
     "fnt",
@@ -97,7 +98,9 @@
     "psd",
     "afphoto",
     "afdesign",
-    "afbrushes"
+    "afbrushes",
+    "eps",
+    "exr"
   ],
   "Java": [
     "jar",
@@ -125,7 +128,8 @@
     "JPG",
     "PNG",
     "GIF",
-    "heic"
+    "heic",
+    "webp"
   ],
   "Internet": [
     "asp",
@@ -143,7 +147,9 @@
     "xhtml",
     "ts",
     "torrent",
-    "json"
+    "json",
+    "chw",
+    "chm"
   ],
   "C": [
     "c",

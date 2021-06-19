@@ -4,12 +4,12 @@
 
 #include "files.h"
 
-void get_file_name(std::vector<std::string> &tokens, std::string &out) {
+void get_file_name(std::vector<std::string>& tokens, std::string& out) {
     out = tokens.back();
 }
 
-void path_to_string(std::string &str, const std::filesystem::directory_entry &entry) {
-    const std::filesystem::path& path { entry.path() };
+void path_to_string(std::string& str, const std::filesystem::directory_entry& entry) {
+    const std::filesystem::path& path{ entry.path() };
     str = path.u8string();
 }
 
@@ -20,8 +20,8 @@ std::string Files::get_download_path() {
 std::string Files::get_username() {
     char win_username[UNLEN + 1];
     DWORD user_len = UNLEN + 1;
-    GetUserName(win_username, &user_len);
-    return std::string {win_username};
+    GetUserNameA(win_username, &user_len);
+    return std::string{ win_username };
 }
 
 std::string Files::build_download_path() {
@@ -34,7 +34,7 @@ Files::Files() {
     this->download_path = build_download_path();
 }
 
-std::string Files::get_filename(const std::filesystem::directory_entry &entry) {
+std::string Files::get_filename(const std::filesystem::directory_entry& entry) {
     // Convert string to c++ string
     std::string filepath;
     path_to_string(filepath, entry);
@@ -48,8 +48,8 @@ std::string Files::get_filename(const std::filesystem::directory_entry &entry) {
     return filename;
 }
 
-void Files::add_all_files(std::vector<std::string> &files, bool include_files) {
-    for (const auto &entry : std::filesystem::directory_iterator(this->download_path)) {
+void Files::add_all_files(std::vector<std::string>& files, bool include_files) {
+    for (const auto& entry : std::filesystem::directory_iterator(this->download_path)) {
         bool is_directory = entry.is_directory();
         if (!include_files && !is_directory) continue;
         if (include_files && !is_directory) {

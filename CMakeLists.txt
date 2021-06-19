@@ -3,4 +3,4 @@ project(files)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(files main.cpp files.cpp utils.cpp)
+add_executable(files main.cpp files.cpp utils.cpp downloads.cpp)
